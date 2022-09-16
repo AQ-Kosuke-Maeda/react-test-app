@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Button } from "@mui/material";
+import styled from 'styled-components';
 
 export const LikeButton = () => {
   const [count, setCount] = useState(0);
@@ -6,8 +8,14 @@ export const LikeButton = () => {
     setCount(count + 1);
   };
   return (
-    <span className="likeButton" onClick={handleClick}>
-      ♥ {count}
-    </span>
+    <SContainer>
+      <Button variant="contained" color="error" onClick={handleClick}>
+        ♥ {count}
+      </Button>
+    </SContainer>
   );
 }
+
+const SContainer = styled.div`
+  height: 50px;
+`;

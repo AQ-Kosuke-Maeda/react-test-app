@@ -1,9 +1,14 @@
-import { SidebarData } from "./SidebarData"
-import { SidebarIcon } from "./SidebarIcon"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import styled from 'styled-components';
+
+import { SidebarData } from "./SidebarData";
+import { SidebarIcon } from "./SidebarIcon";
+import { LikeButton } from "./LikeButton";
 
 export const Sidebar = () => {
   return (
-    <div className="Sidebar">
+    <SSidebar>
+      <BrowserRouter>
       <SidebarIcon />
       <ul className="SidebarList">
         {SidebarData.map((value, key) => {
@@ -17,6 +22,22 @@ export const Sidebar = () => {
           )
         })}
       </ul>
-    </div>
+      <Routes>
+        {/* <Route path="/favorite"><LikeButton /></Route> */}
+      </Routes>
+      </BrowserRouter>
+    </SSidebar>
   );
 }
+
+const SSidebar = styled.div`
+  height: 100%;
+  width: 250px;
+  background-color: #2d445d;
+`;
+
+const SSidebarList = styled.ul`
+  height: auto;
+  padding: 0;
+  width: 100%;
+`;
